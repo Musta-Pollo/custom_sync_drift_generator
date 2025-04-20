@@ -1,0 +1,15 @@
+targets:
+  $default:
+    builders:
+      generators|annotations: # generators|annotations: Refers to the simple_generator builder when dealing with files annotated with annotations.
+        enabled: true
+
+builders:
+  generators:
+    target: ":custom_drift_generator" # Generator name
+    import: "package:custom_drift_generator/generators.dart"
+    builder_factories: ["generateClassSyncCode", "generateSyncCode"] # Builder name(BuilderOption) this is a definition
+    build_extensions: { ".dart": [".classsync.dart", ".sync.dart"] }
+    auto_apply: dependents
+    build_to: source
+    applies_builders: ["source_gen|combining_builder"]
