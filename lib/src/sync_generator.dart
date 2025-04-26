@@ -6,7 +6,7 @@ import 'package:custom_sync_drift_generator/src/model_visitor.dart';
 import 'package:dartx/dartx.dart';
 import 'package:source_gen/source_gen.dart';
 
-class SyncGenerator extends GeneratorForAnnotation<SyncAnnotation> {
+class SyncGenerator extends GeneratorForAnnotation<CustomSync> {
   @override
   String generateForAnnotatedElement(
     Element element,

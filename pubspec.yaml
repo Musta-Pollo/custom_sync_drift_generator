@@ -19,7 +19,7 @@ dependencies:
   custom_sync_drift_annotations:
     git:
       url: https://github.com/Musta-Pollo/custom_sync_drift_annotations.git
-      ref: 8b824d4a8fea14818e42714e150222960a46e54c
+      ref: 34143f54cadd89ee4ed6daed336737e155bb8e7a
   dartx: ^1.2.0
 
 dev_dependencies:
