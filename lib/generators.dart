@@ -1,8 +1,8 @@
-library custom_drift_generator;
+library custom_sync_drift_generator;
 
 import 'package:build/build.dart';
-import 'package:custom_drift_generator/src/json_generator.dart';
-import 'package:custom_drift_generator/src/sync_generator.dart';
+import 'package:custom_sync_drift_generator/src/json_generator.dart';
+import 'package:custom_sync_drift_generator/src/sync_generator.dart';
 import 'package:source_gen/source_gen.dart';
 
 Builder generateClassSyncCode(BuilderOptions options) {

@@ -1,4 +1,4 @@
-name: custom_drift_generator
+name: custom_sync_drift_generator
 description: A new Flutter package project.
 version: 0.0.1
 homepage:
@@ -16,8 +16,10 @@ dependencies:
   source_gen:
 
   # Our annotation
-  custom_drift_annotations:
-    path: ../custom_drift_annotations/
+  custom_sync_drift_annotations:
+    git:
+      url: https://github.com/Musta-Pollo/custom_sync_drift_annotations.git
+      ref: 8b824d4a8fea14818e42714e150222960a46e54c
   dartx: ^1.2.0
 
 dev_dependencies:

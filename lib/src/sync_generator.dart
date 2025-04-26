@@ -1,8 +1,8 @@
 import 'package:analyzer/dart/element/element.dart';
 import 'package:build/build.dart';
 import 'package:build/src/builder/build_step.dart';
-import 'package:custom_drift_annotations/annotations.dart';
-import 'package:custom_drift_generator/src/model_visitor.dart';
+import 'package:custom_sync_drift_annotations/annotations.dart';
+import 'package:custom_sync_drift_generator/src/model_visitor.dart';
 import 'package:dartx/dartx.dart';
 import 'package:source_gen/source_gen.dart';
 
