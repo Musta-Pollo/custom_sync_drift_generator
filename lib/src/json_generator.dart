@@ -57,6 +57,16 @@ class ClassSyncCodeGenerator extends GeneratorForAnnotation<CustomSync> {
         '           .insertOnConflictUpdate(${className}Data.fromJson((record as Map<String, dynamic>)..addAll({\'isRemote\': true})));');
     buffer.writeln('      }');
     buffer.writeln('    }');
+    buffer.writeln('');
+    buffer.writeln('    // Handle deleted ${lowerClassName}s');
+    buffer.writeln(
+        '    final deletedIds = ${lowerClassName}Changes[\'deleted\'] as List<dynamic>;');
+    buffer.writeln('    if (deletedIds.isNotEmpty) {');
+    buffer.writeln('      await (db.delete(${lowerClassName}Instance)');
+    buffer.writeln(
+        '            ..where((tbl) => tbl.id.isIn(deletedIds.map((e) => e.toString()))))');
+    buffer.writeln('          .go();');
+    buffer.writeln('    }');
     buffer.writeln('  }');
     buffer.writeln('}');
 
