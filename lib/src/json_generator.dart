@@ -100,8 +100,7 @@ class ClassSyncCodeGenerator extends GeneratorForAnnotation<CustomSync> {
         '      \'updated\': updated.map((e) => e.toJson()..remove(\'isRemote\')..addAll({');
     buffer.writeln('        \'instance_id\': currentInstanceId,');
     buffer.writeln('      })).toList(),');
-    buffer.writeln(
-        '      \'deleted\': deleted.map((e) => e.map((e) => e.id).toList(),');
+    buffer.writeln('      \'deleted\': deleted.map((e) => e.id).toList(),');
     buffer.writeln('    }');
     buffer.writeln('  };');
     buffer.writeln('}');
