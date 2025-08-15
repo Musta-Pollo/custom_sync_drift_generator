@@ -4,12 +4,15 @@ import 'package:build/build.dart';
 import 'package:custom_sync_drift_generator/src/json_generator.dart';
 import 'package:custom_sync_drift_generator/src/sync_generator.dart';
 import 'package:source_gen/source_gen.dart';
+import 'package:pub_semver/pub_semver.dart';
 
 Builder generateClassSyncCode(BuilderOptions options) {
   // Step 1
   return PartBuilder(
     [ClassSyncCodeGenerator()], // Step 2
-    formatOutput: options.config['format'] == false ? (str) => str : null,
+    formatOutput:
+        options.config['format'] == false ? identityFormatter : noOpFormatter,
+
     '.classsync.dart',
     header: '''
 // coverage:ignore-file
@@ -21,11 +24,19 @@ Builder generateClassSyncCode(BuilderOptions options) {
   );
 }
 
+// Define the identity formatter
+String Function(String, Version) identityFormatter =
+    (String str, Version version) => str;
+String Function(String, Version) noOpFormatter =
+    (String str, Version version) => str;
+
 Builder generateSyncCode(BuilderOptions options) {
   // Step 1
   return PartBuilder(
     [SyncGenerator()], // Step 2
-    formatOutput: options.config['format'] == false ? (str) => str : null,
+    formatOutput:
+        options.config['format'] == false ? identityFormatter : noOpFormatter,
+
     '.sync.dart',
     header: '''
 // coverage:ignore-file
